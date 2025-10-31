@@ -431,8 +431,8 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "beartrap"
 	name = "mantrap"
-	time_between_triggers = 100 //feel free to add more than 1 use
-	max_integrity = 100
+	time_between_triggers = 50 //feel free to add more than 1 use
+	max_integrity = 350 //pioneers kept accidentally 1 shotting their mines, have to raise it
 	trap_damage = 60
 	alpha = 60
 	charges = 2 //feel free to add more than 1 use
