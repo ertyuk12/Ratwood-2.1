@@ -34276,7 +34276,7 @@
 	lockid = "church";
 	name = "Church Cells"
 	},
-/turf/closed,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/basement)
 "kIS" = (
 /turf/open/floor/rogue/blocks/stonered/tiny,
