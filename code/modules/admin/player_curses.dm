@@ -1,29 +1,254 @@
+////////////////////////////////////////////////////////////
+//  CURSE DATUM
+////////////////////////////////////////////////////////////
+
+/datum/modular_curse
+	var/name
+	var/expires
+	var/chance
+	var/cooldown
+	var/last_trigger = 0
+	var/trigger
+	var/effect
+	var/list/effect_args
+	var/admin
+	var/reason
+	var/mob/owner
+	var/list/signals = list()
+
+/datum/modular_curse/proc/attach_to_mob(mob/M)
+	owner = M
+
+	switch(trigger)
+		if("on death")
+			RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_DEATH
+		if("on sleep")
+			RegisterSignal(M, COMSIG_LIVING_STATUS_SLEEP, PROC_REF(on_signal_trigger))
+			signals += COMSIG_LIVING_STATUS_SLEEP
+		if("on attack")
+			RegisterSignal(M, COMSIG_MOB_ATTACK_HAND, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_ATTACK_HAND
+			RegisterSignal(M, COMSIG_MOB_ITEM_ATTACK, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_ITEM_ATTACK
+			RegisterSignal(M, COMSIG_MOB_ATTACK_RANGED, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_ATTACK_RANGED
+		if("on receive damage")
+			RegisterSignal(M, COMSIG_MOB_APPLY_DAMGE, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_APPLY_DAMGE
+		if("on spell or miracle target")
+			RegisterSignal(M, COMSIG_MOB_RECEIVE_MAGIC, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_RECEIVE_MAGIC
+		if("on orgasm")
+			RegisterSignal(M, COMSIG_MOB_EJACULATED, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_EJACULATED
+		if("on move")
+			RegisterSignal(M, COMSIG_MOVABLE_MOVED, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOVABLE_MOVED
+		if("on day")
+			RegisterSignal(M, COMSIG_MOB_DAYED, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_DAYED
+		if("on night")
+			RegisterSignal(M, COMSIG_MOB_NIGHTED, PROC_REF(on_signal_trigger))
+			signals += COMSIG_MOB_NIGHTED
+
+	// spawn trigger fires instantly
+	if(trigger == "on spawn")
+		check_trigger("on spawn")
+
+/datum/modular_curse/proc/on_signal_trigger()
+	if(!owner)
+		return
+	check_trigger(trigger)
+
+/datum/modular_curse/proc/detach()
+	unregister_all_signals()
+	owner = null
+	signals = list()
+	qdel(src)
+
+/datum/modular_curse/proc/check_trigger(trigger_name)
+	if(!owner)
+		return
+
+	if(trigger != trigger_name)
+		return
+
+	if(expires <= now_days())
+		var/ck = owner?.ckey
+		detach()
+		if(ck)
+			remove_player_curse(ck, name)
+		return
+
+	// cooldown
+	if(world.time < last_trigger + (cooldown * 10))
+		return
+
+	if(!prob(chance))
+		return
+
+	last_trigger = world.time
+	trigger_effect()
+
+/datum/modular_curse/proc/trigger_effect()
+	if(!owner)
+		return
+
+	var/mob/living/L = owner
+
+	switch(effect)
+		if("buff or debuff")
+			var/debuff_id = effect_args["debuff_id"]
+			if(!debuff_id || !istype(debuff_id, /datum/status_effect))
+				return
+			L.apply_status_effect(debuff_id)
+		if("remove trait")
+			var/trait_id = effect_args["trait"]
+			if(!trait_id)
+				return
+			REMOVE_TRAIT(L, trait_id, TRAIT_GENERIC)
+		if("add trait")
+			var/trait_id = effect_args["trait"]
+			if(!trait_id)
+				return
+			ADD_TRAIT(L, trait_id, TRAIT_GENERIC)
+		if("add 2u reagent")
+			var/reagent_type = effect_args["reagent_type"]
+			var/mob/living/carbon/M = L
+			var/datum/reagents/reagents = new()
+			reagents.add_reagent(reagent_type, 2)
+			reagents.trans_to(M, 2, transfered_by = M, method = INGEST)
+		if("add arousal")
+			L.sexcon.arousal += 5
+		/*if("shrink sex organs")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.adjust_sexual_organs(-1)
+		if("enlarge sex organs")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.adjust_sexual_organs(1)*/
+		if("nauseate")
+			var/mob/living/carbon/M = L
+			M.add_nausea(4)
+		if("clothesplosion")
+			L.drop_all_held_items()
+			// Remove all clothing except collar
+			for(var/obj/item/I in L.get_equipped_items())
+				L.dropItemToGround(I, TRUE)
+		if("slip")
+			L.liquid_slip(total_time = 1 SECONDS, stun_duration = 1 SECONDS, height = 12, flip_count = 0)
+			/*
+		if("jail in arcyne walls")
+			var/turf/target = get_turf(L)
+
+			for(var/turf/affected_turf in view(1, L))
+				if(!(affected_turf in view(L)))
+					continue
+				if(get_dist(L, affected_turf) != 1)
+					continue
+				new /obj/effect/temp_visual/trap_wall(affected_turf)
+				addtimer(CALLBACK(src, PROC_REF(/obj/effect/proc_holder/spell/invoked/forcewall/new_wall), affected_turf, L), wait = 0 SECONDS)
+				/obj/effect/proc_holder/spell/invoked/forcewall/proc/new_wall(var/turf/target, mob/user)
+	new wall_type(target, user)
+		if("make deadite")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.transform_into_deadite()
+		if("make vampire")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.transform_into_vampire()
+		if("make werewolf")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.transform_into_werewolf()*/
+		if("shock")
+			L.electrocute_act(rand(15,30), src)
+		if("add fire stack")
+			L.adjust_fire_stacks(rand(1,6))
+			L.ignite_mob()
+		/*if("easy ambush")
+			var/mob/living/simple_animal/M = effect_args["mob_type"]
+			if(!M || !istype(M, /mob/living/simple_animal))
+				return
+			ambush_mob_at_target(L, M, easy = TRUE)
+		if("difficult ambush")
+			var/mob/living/simple_animal/M = effect_args["mob_type"]
+			if(!M || !istype(M, /mob/living/simple_animal))
+				return
+			ambush_mob_at_target(L, M, easy = FALSE)*/
+		if("explode")
+			explosion(get_turf(L), 1, 2, 3, 0, TRUE, TRUE)
+		/*
+		if("nugget")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.spawn_gold_nugget()
+		if("gib and spawn player controlled mob")
+			var/mob/living/simple_animal/M = effect_args["mob_type"]
+			if(!M || !istype(M, /mob/living/simple_animal))
+				return
+			L.gib()
+			spawn_player_controlled_mob_at(M, L.loc, L.ckey)
+		if("gib and reset body")
+			if(istype(L, /mob/living/carbon/human))	
+				var/mob/living/carbon/human/H = L
+				H.gib_and_reset_body()
+		*/
+		if("gib")
+			L.gib()
+		if("gib and explode")
+			explosion(get_turf(L), 1, 2, 3, 0, TRUE, TRUE)
+			L.gib()
+		else
+			// Unknown effect
+			return
+
+/datum/modular_curse/proc/unregister_all_signals()
+	if(!owner || !signals || !signals.len)
+		return
+
+	for(var/S in signals)
+		UnregisterSignal(owner, S)
+
+	signals.Cut()
+////////////////////////////////////////////////////////////
+//  TIME HELPER
+////////////////////////////////////////////////////////////
+
 /proc/now_days()
 	return round((world.realtime / 10) / 86400)
 
 
-// =========================================================
+
+////////////////////////////////////////////////////////////
 //  JSON LOAD / SAVE
-// =========================================================
+////////////////////////////////////////////////////////////
 
 /proc/get_player_curses(key)
-	if(!key) return
+	if(!key)
+		return
 
 	var/json_file = file("data/player_saves/[copytext(key,1,2)]/[key]/curses.json")
 	if(!fexists(json_file))
 		WRITE_FILE(json_file, "{}")
 
 	var/list/json = json_decode(file2text(json_file))
-	if(!json) json = list()
+	if(!json)
+		json = list()
 
 	return json
 
 
 /proc/has_player_curse(key, curse)
-	if(!key || !curse) return FALSE
+	if(!key || !curse)
+		return FALSE
 
 	var/list/json = get_player_curses(key)
-	if(!json || !json[curse]) return FALSE
+	if(!json || !json[curse])
+		return FALSE
 
 	var/list/C = json[curse]
 
@@ -46,16 +271,19 @@
 	admin_name = "unknown",
 	reason = "No reason supplied."
 )
-	if(!key || !curse) return FALSE
+	if(!key || !curse)
+		return FALSE
 
 	var/json_file = file("data/player_saves/[copytext(key,1,2)]/[key]/curses.json")
 	if(!fexists(json_file))
 		WRITE_FILE(json_file, "{}")
 
 	var/list/json = json_decode(file2text(json_file))
-	if(!json) json = list()
+	if(!json)
+		json = list()
 
-	if(json[curse]) return FALSE
+	if(json[curse])
+		return FALSE
 
 	json[curse] = list(
 		"expires"      = now_days() + duration_days,
@@ -71,30 +299,116 @@
 
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(json))
+
+	// Live-refresh if they're online
+	refresh_player_curses_for_key(key)
+
 	return TRUE
 
 
 /proc/remove_player_curse(key, curse)
-	if(!key || !curse) return FALSE
+	if(!key || !curse)
+		return FALSE
 
 	var/json_file = file("data/player_saves/[copytext(key,1,2)]/[key]/curses.json")
 	if(!fexists(json_file))
 		WRITE_FILE(json_file, "{}")
 
 	var/list/json = json_decode(file2text(json_file))
-	if(!json) return FALSE
+	if(!json)
+		return FALSE
 
-	json[curse] = null
+	// ✅ actually remove the entry
+	json -= curse
 
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(json))
+
+	// ✅ live refresh so datum detaches and disappears from UI
+	refresh_player_curses_for_key(key)
+
 	return TRUE
 
 
 
-// =========================================================
-//  CURSE CREATION POPUP
-// =========================================================
+////////////////////////////////////////////////////////////
+//  LIVE REFRESH TO MIND / MOB
+////////////////////////////////////////////////////////////
+
+/proc/load_curses_into_mind(datum/mind/M, key)
+	if(!M || !key)
+		return
+
+	// ✅ Clear old datums so we never double-load
+	if(M.curses)
+		for(var/datum/modular_curse/C in M.curses)
+			C.detach()
+
+	M.curses = list()
+
+	var/list/json = get_player_curses(key)
+	if(!json || !json.len)
+		return
+
+	for(var/curse_name in json)
+		var/list/C = json[curse_name]
+		if(!C) continue
+
+		var/datum/modular_curse/CR = new
+		CR.name         = curse_name
+		CR.expires      = C["expires"]
+		CR.chance       = C["chance"]
+		CR.cooldown     = C["cooldown"]
+		CR.last_trigger = C["last_trigger"]
+		CR.trigger      = C["trigger"]
+		CR.effect       = C["effect"]
+		CR.effect_args  = C["effect_args"]
+		CR.admin        = C["admin"]
+		CR.reason       = C["reason"]
+
+		M.curses[curse_name] = CR
+
+/proc/apply_curses_to_mob(mob/M, datum/mind/MN)
+	if(!M || !MN || !MN.curses)
+		return
+
+	for(var/curse_name in MN.curses)
+		var/datum/modular_curse/C = MN.curses[curse_name]
+
+		if(C.owner == M)
+			continue
+
+		C.attach_to_mob(M)
+
+
+/proc/refresh_player_curses_for_key(key)
+	if(!key)
+		return
+
+	for(var/client/C in GLOB.clients)
+		if(!C || C.ckey != key)
+			continue
+
+		var/mob/M = C.mob
+		if(!M)
+			return
+
+		if(!M.mind)
+			M.mind_initialize()
+
+		if(M.mind)
+			if(M.mind.curses)
+				for(var/datum/modular_curse/CRS in M.mind.curses)
+					CRS.detach()
+			load_curses_into_mind(M.mind, key)
+			apply_curses_to_mob(M, M.mind)
+		return
+
+
+
+////////////////////////////////////////////////////////////
+//  ADMIN POPUP – CURSE CREATION
+////////////////////////////////////////////////////////////
 
 /client/proc/curse_player_popup(mob/target)
 	if(!target || !target.ckey)
@@ -104,31 +418,27 @@
 	var/key = target.ckey
 
 	// ---- Trigger Selection ----
+	//commented out do not currently have signals
 	var/list/trigger_list = list(
 		"on spawn",
 		"on death",
+		//"on beheaded",
 		"on sleep",
 		"on attack",
-		"on cast spell",
 		"on receive damage",
-		"on spell/miracle target",
-		"on crit status",
-		"on behead",
-		"on break wall/door/window",
-		"on cut tree",
-		"on craft",
-		"on sex",
+		//on cast spell,
+		"on spell or miracle target",
+		//"on break wall/door/window",
+		//"on cut tree",
+		//"on craft",
 		"on orgasm",
-		"on bite",
-		"on jump",
-		"on climb",
-		"on swim",
-		"on run",
-		"on walk"
-		"on midnight"
-		"on noon"
-		"on dusk"
-		"on dawn"
+		//"on bite",
+		//"on jump",
+		//"on climb",
+		//"on swim",
+		"on move",
+		"on day",
+		"on night"
 	)
 
 	var/trigger = input(
@@ -137,7 +447,8 @@
 		"Trigger Selection"
 	) as null|anything in trigger_list
 
-	if(!trigger) return
+	if(!trigger)
+		return
 
 	// ---- Chance ----
 	var/chance = input(
@@ -147,7 +458,8 @@
 		100
 	) as null|num
 
-	if(isnull(chance)) return
+	if(isnull(chance))
+		return
 	chance = clamp(chance, 1, 100)
 
 	// ---- Effect Selection ----
@@ -156,26 +468,24 @@
 		"remove trait",
 		"add trait",
 		"add 2u reagent",
-		"max devotion",
-		"zero devotion",
-		"max arousal",
-		"shrink sex organs",
-		"enlarge sex organs",
+		"add arousal",
+		//"shrink sex organs",
+		//"enlarge sex organs",
 		"nauseate",
 		"clothesplosion",
 		"slip",
-		"jail in arcyne walls",
-		"make deadite",
-		"make vampire",
-		"make werewolf",
+		//"jail in arcyne walls",
+		//"make deadite",
+		//"make vampire",
+		//"make werewolf",
 		"shock",
-		"add stack of fire",
-		"easy ambush",
-		"difficult ambush",
+		"add fire stack",
+		//"easy ambush",
+		//"difficult ambush",
 		"explode",
-		"nugget",
-		"gib and spawn player controlled mob",
-		"gib and reset body",
+		//"nugget",
+		//"gib and spawn player controlled mob",
+		//"gib and reset body",
 		"gib",
 		"gib and explode"
 	)
@@ -186,7 +496,8 @@
 		"Effect Selection"
 	) as null|anything in effect_list
 
-	if(!effect_proc) return
+	if(!effect_proc)
+		return
 
 	var/list/effect_args = null
 
@@ -202,7 +513,8 @@
 			"Trait Selection"
 		) as null|anything in trait_choices
 
-		if(!trait_id) return
+		if(!trait_id)
+			return
 
 		effect_args = list("trait" = trait_id)
 
@@ -212,39 +524,43 @@
 			src,
 			"Select the effect to apply:",
 			"Effect Selection"
-		) as null|anything in subtypesof(/datum/status_effect/debuff)
+		) as null|anything in subtypesof(/datum/status_effect)
 
-		if(!debuff_id) return
+		if(!debuff_id)
+			return
 
 		effect_args = list(
-			"debuff_id"  = debuff_id
+			"debuff_id" = debuff_id
 		)
 
+	// ---- Reagent selection ----
 	if(effect_proc == "add 2u reagent")
-		var/reagent_name = input(
+		var/reagent_type = input(
 			src,
-			"Enter the reagent to add (exact name):",
+			"Select the reagent to add (typepath):",
 			"Reagent Selection"
 		) as null|anything in subtypesof(/datum/reagent)
 
-		if(!reagent_name) return
+		if(!reagent_type)
+			return
 
 		effect_args = list(
-			"reagent_name" = reagent_name,
+			"reagent_type" = reagent_type
 		)
 
 	// ---- Mob-spawning effects ----
 	if(effect_proc in list("gib and spawn player controlled mob", "easy ambush", "difficult ambush"))
-		var/mob_name = input(
+		var/mob_type = input(
 			src,
 			"Select the mob to spawn/give:",
 			"Mob Selection"
 		) as null|anything in subtypesof(/mob/living/simple_animal)
 
-		if(!mob_name) return
+		if(!mob_type)
+			return
 
 		effect_args = list(
-			"mob_name" = mob_name,
+			"mob_type" = mob_type
 		)
 
 	// ---- Duration ----
@@ -255,7 +571,8 @@
 		1
 	) as null|num
 
-	if(!duration || duration <= 0) return
+	if(!duration || duration <= 0)
+		return
 
 	// ---- Cooldown ----
 	var/cooldown = input(
@@ -265,7 +582,8 @@
 		45
 	) as null|num
 
-	if(cooldown < 0) cooldown = 0
+	if(cooldown < 0)
+		cooldown = 0
 
 	// ---- Reason ----
 	var/reason = input(

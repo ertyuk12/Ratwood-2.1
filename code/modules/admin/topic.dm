@@ -1410,15 +1410,16 @@
 
 
 	else if(href_list["removecurse"])
-		var/key = href_list["removecurse"]
-		var/name = href_list["name"]
+		var/name = href_list["removecurse"]
+		var/key = href_list["key"]
 
-		remove_player_curse(key, name)
-		usr << "<span class='notice'>Removed curse <b>[name]</b> from [key].</span>"
+		if(remove_player_curse(key, name))
+			usr << "<span class='notice'>Removed curse <b>[name]</b> from [key].</span>"
+		else
+			usr << "<span class='warning'>Failed to remove curse <b>[name]</b> from [key].</span>"
 
 		src.player_panel_new()
 		return
-
 
 	else if(href_list["clearallcurses"])
 		var/key = href_list["clearallcurses"]
