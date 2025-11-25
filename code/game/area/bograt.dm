@@ -70,6 +70,7 @@
 
 /area/rogue/outdoors/bograt/west
 	name = "Western Terrorbog"
+	first_time_text = "The Terrormarsh"
 	threat_region = THREAT_REGION_ROCKHILL_BOG_WEST
 	ambush_mobs = list(
 		/mob/living/carbon/human/species/skeleton/npc/rockhill = 15,

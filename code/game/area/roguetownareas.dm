@@ -765,6 +765,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	town_area = TRUE
 	ceiling_protected = TRUE
 
+/area/rogue/under/town/basement/tavern
+	name = "tavern basement"
+	icon_state = "basement"
+	tavern_area = TRUE
+	town_area = TRUE
+	ceiling_protected = TRUE
+
 /area/rogue/outdoors/exposed/under/basement
 	icon_state = "basement"
 	droning_sound = 'sound/music/area/catacombs.ogg'
