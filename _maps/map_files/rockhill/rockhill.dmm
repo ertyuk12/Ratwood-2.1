@@ -42794,9 +42794,6 @@
 	droning_sound_dusk = null;
 	droning_sound_night = null
 	})
-"nfA" = (
-/turf/closed,
-/area/rogue/outdoors/beach/harbor)
 "nfE" = (
 /obj/structure/chair/bench/couchablack,
 /obj/machinery/light/roguestreet/orange/walllamp{
@@ -380035,7 +380032,7 @@ euP
 euP
 euP
 luB
-nfA
+euP
 euP
 euP
 euP
