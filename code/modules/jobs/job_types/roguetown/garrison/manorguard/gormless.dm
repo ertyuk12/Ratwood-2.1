@@ -3,7 +3,7 @@
 //Expert unarmed to top it off. Make sah proud.
 //In exchange, you're slower. Much slower. Both in matters of speed or otherwise.
 /datum/advclass/manorguard/gormless
-	name = "Watchman"//This and the path name need proper names. Unless we keep this, I guess. It's basically old watch.
+	name = "Catchpole"
 	tutorial = "Not quite the professional. Not quite the soldier. More akin to a brute they've given a hammer, some leftover equipment and told to face the enemy. \
 	Yet, you've proven yourself more reliable than disposable. More than most can say."
 	outfit = /datum/outfit/job/roguetown/manorguard/gormless
