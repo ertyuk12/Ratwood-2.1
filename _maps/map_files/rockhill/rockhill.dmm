@@ -5038,6 +5038,14 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/cell)
+"bDS" = (
+/obj/structure/mineral_door/wood/violet{
+	locked = 1;
+	lockid = "tavern";
+	name = "Tapster's Attic"
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/outdoors/town/roofs)
 "bDX" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
@@ -20203,11 +20211,11 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/beach/harbor)
 "gcG" = (
+/obj/structure/bed/rogue/inn/wool,
+/obj/item/bedsheet/rogue/cloth,
 /obj/machinery/light/rogue/wallfire{
 	pixel_x = 32
 	},
-/obj/structure/bed/rogue/inn/wool,
-/obj/item/bedsheet/rogue/cloth,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/tavern)
 "gcS" = (
@@ -32898,8 +32906,6 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/warden)
 "jWm" = (
-/obj/item/clothing/mask/rogue/facemask/prisoner,
-/obj/item/clothing/mask/rogue/facemask/prisoner,
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/grassred,
 /area/rogue/indoors/town/fire_chamber{
@@ -40232,6 +40238,14 @@
 "mlY" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woodsrat/river)
+"mmb" = (
+/obj/structure/bed/rogue/inn/wool,
+/obj/item/bedsheet/rogue/cloth,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "mmr" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9;
@@ -43739,6 +43753,15 @@
 /obj/structure/chair/smallbench,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/chapel)
+"nuS" = (
+/obj/structure/closet/crate/roguecloset,
+/obj/item/clothing/suit/roguetown/shirt/dress/gen/black,
+/obj/item/clothing/cloak/apron/waist,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "nuZ" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/herringbone,
@@ -58671,10 +58694,11 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town/grove)
 "seW" = (
-/obj/structure/closet/crate/drawer/inn{
-	keylock = 1;
-	lockid = "roomiv";
-	pixel_y = 9
+/obj/structure/bed/rogue/inn/wool{
+	dir = 1
+	},
+/obj/item/bedsheet/rogue/pelt{
+	dir = 1
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
@@ -64165,6 +64189,12 @@
 /obj/effect/landmark/quest_spawner/medium,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bograt/west)
+"tPo" = (
+/obj/structure/closet/crate/roguecloset,
+/obj/item/clothing/suit/roguetown/shirt/dress/gen/black,
+/obj/item/clothing/cloak/apron/waist,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "tPq" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/infernal/hellhound,
 /turf/open/floor/rogue/volcanic,
@@ -74687,6 +74717,10 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/rockhill)
+"xij" = (
+/obj/structure/curtain/brown,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "xiq" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/carpet/red,
@@ -76930,14 +76964,13 @@
 	name = "Mage's Tower"
 	})
 "xSV" = (
-/obj/structure/bed/rogue/inn/wool{
-	dir = 1
-	},
-/obj/item/bedsheet/rogue/pelt{
-	dir = 1
+/obj/structure/closet/crate/drawer/inn{
+	keylock = 1;
+	lockid = "roomiv";
+	pixel_y = 9
 	},
 /obj/machinery/light/rogue/wallfire{
-	pixel_y = 32
+	pixel_x = -32
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
@@ -583234,9 +583267,9 @@ fZJ
 hox
 dld
 col
-eBW
-eBW
-eBW
+tPo
+lQe
+fcL
 lHE
 iJC
 iJC
@@ -583666,10 +583699,10 @@ fZJ
 fjX
 rZi
 col
+nuS
 eBW
-oTD
 eBW
-lHE
+bDS
 iJC
 iJC
 iJC
@@ -584098,9 +584131,9 @@ fZJ
 fjX
 rZi
 col
-eBW
-oTD
-eBW
+xre
+xij
+xre
 lHE
 iJC
 iJC
@@ -584530,9 +584563,9 @@ fZJ
 fjX
 rZi
 col
+tdk
 eBW
-oTD
-eBW
+tdk
 lHE
 iJC
 iJC
@@ -584962,7 +584995,7 @@ fZJ
 ptX
 feh
 col
-eBW
+lyO
 eBW
 eBW
 lHE
@@ -585394,9 +585427,9 @@ fZJ
 fZJ
 fjX
 col
-oTD
-oTD
+mmb
 eBW
+tdk
 lHE
 qlC
 qlC
