@@ -161,9 +161,6 @@
 	flags_inv = HIDEEARS
 	body_parts_covered = HEAD|HAIR|EARS|NOSE|EYES
 
-/obj/item/clothing/head/roguetown/mentorhat/loadout
-	armor = ARMOR_PADDED_BAD
-
 /obj/item/clothing/head/roguetown/hbit
 	name = "head bit"
 	desc = "A restraining head piece made of reinforced leather."

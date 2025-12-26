@@ -696,15 +696,15 @@ GLOBAL_LIST_EMPTY(loadout_items)
 
 /datum/loadout_item/kitsune_mask
 	name = "Old Kitsune Mask"
-	path = /obj/item/clothing/mask/rogue/facemask/yoruku_kitsune/loadout
+	path = /obj/item/clothing/mask/rogue/facemask/yoruku_kitsune
 
 /datum/loadout_item/oni_mask
 	name = "Old Oni Mask"
-	path = /obj/item/clothing/mask/rogue/facemask/yoruku_oni/loadout
+	path = /obj/item/clothing/mask/rogue/facemask/yoruku_oni
 
 /datum/loadout_item/naledi_lordmask
 	name = "Old Naledi Mask"
-	path = /obj/item/clothing/mask/rogue/lordmask/naledi/loadout
+	path = /obj/item/clothing/mask/rogue/lordmask/naledi
 
 // CLOAKS
 /datum/loadout_item/darkcloak
@@ -763,20 +763,20 @@ GLOBAL_LIST_EMPTY(loadout_items)
 // NECK/GORGETS
 /datum/loadout_item/forlorn_collar
 	name = "Old Forlorn Collar"
-	path = /obj/item/clothing/neck/roguetown/gorget/forlorncollar/loadout
+	path = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
 
 // EASTERN CLOTHING
 /datum/loadout_item/captain_robe
 	name = "Eastern Flowery Robe"
-	path = /obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe/loadout
+	path = /obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe
 
 /datum/loadout_item/mentor_suit
 	name = "Eastern Mentor Suit"
-	path = /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit/loadout
+	path = /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit
 
 /datum/loadout_item/crafteast
 	name = "Eastern Craft Robe"
-	path = /obj/item/clothing/suit/roguetown/armor/basiceast/crafteast/loadout
+	path = /obj/item/clothing/suit/roguetown/armor/basiceast/crafteast
 
 // HEADWEAR
 /datum/loadout_item/nochood
@@ -811,7 +811,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 
 /datum/loadout_item/mentorhat
 	name = "conical mentor hat"
-	path = /obj/item/clothing/head/roguetown/mentorhat/loadout
+	path = /obj/item/clothing/head/roguetown/mentorhat
 
 // ROBES - ASTRATA
 /datum/loadout_item/robe_astrata
@@ -991,7 +991,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 // CLOTHING - HEADWEAR
 /datum/loadout_item/tri_circlet
 	name = "Circlet"
-	path = /obj/item/clothing/head/roguetown/circlet/loadout
+	path = /obj/item/clothing/head/roguetown/circlet
 	triumph_cost = 4
 
 /datum/loadout_item/tri_volfhelm
@@ -1023,7 +1023,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 // CLOTHING - ARMOR
 /datum/loadout_item/tri_regen_skin
 	name = "Regenerating Skin"
-	path = /obj/item/clothing/suit/roguetown/armor/regenerating/skin/loadout
+	path = /obj/item/clothing/suit/roguetown/armor/regenerating/skin
 	triumph_cost = 5
 
 

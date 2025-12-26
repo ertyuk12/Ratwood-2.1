@@ -486,19 +486,6 @@
 	sellprice = 100
 	smeltresult = /obj/item/ingot/gold
 
-/obj/item/clothing/mask/rogue/facemask/yoruku_oni/loadout
-	name = "old oni mask"
-	desc = "A old wood mask carved in the visage of demons said to stalk the mountains of Kazengun."
-	armor = ARMOR_PADDED_BAD
-	prevent_crits = null
-
-
-/obj/item/clothing/mask/rogue/facemask/yoruku_kitsune/loadout
-	name = "old kitsune mask"
-	desc = "A oldwood mask carved in the visage of the fox spirits said to ply their tricks in the forests of Kazengun."
-	armor = ARMOR_PADDED_BAD
-	prevent_crits = null
-
 /obj/item/clothing/mask/rogue/facemask/yoruku_oni
 	name = "oni mask"
 	desc = "A wood mask carved in the visage of demons said to stalk the mountains of Kazengun."
@@ -606,12 +593,6 @@
 	flags_inv = HIDEFACE|HIDESNOUT
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	sellprice = 0
-
-/obj/item/clothing/mask/rogue/lordmask/naledi/loadout
-	name = "old war scholar's mask"
-	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross. Too decrepit to protect any longer."
-	armor = ARMOR_PADDED_BAD
-	prevent_crits = null
 
 /obj/item/clothing/mask/rogue/lordmask/naledi/sojourner
 	name = "sojourner's mask"

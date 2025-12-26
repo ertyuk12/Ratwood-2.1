@@ -945,6 +945,36 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 						var/path2item = user.mind.special_items[item]
 						user.mind.special_items -= item
 						var/obj/item/I = new path2item(user.loc)
+						
+						// Check if this is a loadout item and reduce armor if applicable
+						var/is_loadout_item = FALSE
+						if(user.client?.prefs)
+							var/list/loadout_slots = list("loadout", "loadout2", "loadout3", "loadout4", "loadout5", 
+														  "loadout6", "loadout7", "loadout8", "loadout9", "loadout10")
+							for(var/slot in loadout_slots)
+								var/datum/loadout_item/loadout_datum = user.client.prefs.vars[slot]
+								if(loadout_datum && loadout_datum.path == path2item)
+									is_loadout_item = TRUE
+									break
+						
+						// Apply modifications for loadout items
+						if(is_loadout_item)
+							// Set sellprice to 0
+							I.sellprice = 0
+							
+							// Remove crit protection if the item has it
+							if(istype(I, /obj/item/clothing))
+								var/obj/item/clothing/C = I
+								C.prevent_crits = null
+							
+							// Reduce weapon damage by 50%
+							if(I.force > 0)
+								I.force = round(I.force * 0.5)
+							
+							// Reduce armor ratings by 70% (rounded down)
+							if(I.armor)
+								I.armor = I.armor.multiplymodifyAllRatings(0.7)
+						
 						// Apply custom color if set (for clothing and weapons) - BEFORE putting in hands
 						var/dye = user.client?.prefs.resolve_loadout_to_color(path2item)
 						if (dye)

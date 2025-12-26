@@ -351,13 +351,6 @@
 	desc = "Nature knows not of mercy."
 	icon_state = "iwolfcollaralt"
 
-/obj/item/clothing/neck/roguetown/gorget/forlorncollar/loadout
-	name = "old vreccale"
-	desc = "Nature knows not of mercy."
-	icon_state = "iwolfcollaralt"
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
-	armor = ARMOR_LEATHER
-
 /obj/item/clothing/neck/roguetown/gorget/steel
 	name = "steel gorget"
 	smeltresult = /obj/item/ingot/steel

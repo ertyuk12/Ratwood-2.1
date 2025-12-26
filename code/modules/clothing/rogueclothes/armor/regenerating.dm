@@ -107,9 +107,4 @@
 	repair_time = 20 SECONDS
 
 
-/obj/item/clothing/suit/roguetown/armor/regenerating/skin/loadout
-	desc = "A flexible, leathery skin that slowly regenerates from damage over time. However it offers only minimal protection and you can't take it off."
-	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT)
-	max_integrity = 150 // Half than disciple skin
-	repair_time = 5 SECONDS //Conpensates for lower integrity and armor values with faster repair time
-	armor = list("blunt" = 30, "slash" = 30, "stab" = 15, "piercing" = 15, "fire" = 0, "acid" = 0)
+
