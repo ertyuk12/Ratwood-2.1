@@ -280,7 +280,7 @@
 /obj/item/natural/cloth/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/C = I
 	if(!istype(C))
-		return
+		return ..()
 	if(C.reagents.has_reagent(/datum/reagent/medicine/healthpot, 10) && !medicine_amount)
 		to_chat(user, span_notice("Soaking the [src] in lyfeblood..."))
 		if(do_after(user, 3 SECONDS, target = src))
@@ -317,7 +317,6 @@
 			desc += " It has been soaked in blessed water."
 			detail_color = "#6a9295"
 			update_icon()
-	. = ..()
 
 /obj/item/natural/cloth/update_icon()
 	cut_overlays()
