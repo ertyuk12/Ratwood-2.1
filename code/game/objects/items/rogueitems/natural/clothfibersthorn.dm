@@ -166,6 +166,7 @@
 	experimental_inhand = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
 	sellprice = 4
+	detail_tag = "_soaked"
 	var/wet = 0
 	/// Effectiveness when used as a bandage, how much it'll lower the bloodloss, bloodloss will get multiplied by this.
 	var/bandage_effectiveness = 0.5 
@@ -284,9 +285,45 @@
 			medicine_quality = 1
 			medicine_amount += 10
 			desc += " It has been soaked in lyfeblood."
-			color = "#ff0000" //change this properly later!! Hopefully with a fancy overlay that doesn't turn the enitre thing red
+			detail_color = "#ff0000"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/medicine/stronghealth, 10) && !medicine_amount)
+		to_chat(user, span_notice("Soaking the [src] in strong lyfeblood..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/medicine/stronghealth, 10)
+			medicine_quality = 2
+			medicine_amount += 10
+			desc += " It has been soaked in strong lyfeblood."
+			detail_color = "#820000"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/consumable/ethanol/aqua_vitae, 10) && !medicine_amount)
+		to_chat(user, span_notice("Soaking the [src] in aqua vitae..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/consumable/ethanol/aqua_vitae, 10)
+			medicine_quality = 0.5 //slower than health potions, more healing overall. Good for fractures or other big wounds.
+			medicine_amount += 30
+			desc += " It has been soaked in aqua vitae."
+			detail_color = "#6e6e6e"
+			update_icon()
+	if(C.reagents.has_reagent(/datum/reagent/water/blessed, 10) && !medicine_amount)
+		to_chat(user, span_notice("Soaking the [src] in blessed water..."))
+		if(do_after(user, 3 SECONDS, target = src))
+			C.reagents.remove_reagent(/datum/reagent/water/blessed, 10)
+			medicine_quality = 0.2 //cheap, easy to get, doesn't even heal wounds if it's not on a bandage
+			medicine_amount += 20
+			desc += " It has been soaked in blessed water."
+			detail_color = "#6a9295"
 			update_icon()
 	. = ..()
+
+/obj/item/natural/cloth/update_icon()
+	cut_overlays()
+	if(medicine_amount)
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)
 	if(!M.can_inject(user, TRUE))

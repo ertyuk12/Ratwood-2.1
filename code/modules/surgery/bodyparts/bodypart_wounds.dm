@@ -562,8 +562,9 @@
 		cloth = bandage
 	if(cloth.medicine_quality)
 		if(cloth.medicine_amount >= 0)
-			heal_wounds(cloth.medicine_quality * 5) //just putting a ridiculous number here for testing
-			cloth.medicine_amount -= 0.5
+			heal_wounds(cloth.medicine_quality * 1)
+			heal_damage(cloth.medicine_quality * 1, cloth.medicine_quality * 1, 0, null, FALSE)
+			cloth.medicine_amount -= 0.25
 		else
 			cloth.medicine_amount = 0
 			cloth.medicine_quality = 0
