@@ -232,7 +232,8 @@
 			continue
 		if(doctor.mind)
 			doctor.mind.add_sleep_experience(skill_used, doctor.STAINT * 2.5)
-		use(1)
+		if(!target.construct)
+			use(1)
 		target_wound.sew_wound()
 		if(patient == doctor)
 			if(is_simple_animal)

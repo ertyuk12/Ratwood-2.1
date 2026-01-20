@@ -143,6 +143,7 @@
 /datum/surgery_step/set_bone/construct
 	skill_used = /datum/skill/craft/engineering
 	surgery_flags = SURGERY_INCISED | SURGERY_RETRACTED | SURGERY_BROKEN | SURGERY_CONSTRUCT
+	surgery_flags_blocked = null
 
 /// Manipulate Organs
 /datum/surgery_step/manipulate_organs/construct
@@ -181,5 +182,10 @@
 
 /datum/surgery_step/remove_prosthetic/construct
 	surgery_flags = SURGERY_CONSTRUCT
+	skill_used = /datum/skill/craft/engineering
+	surgery_flags_blocked = null
+
+/datum/surgery_step/infuse_lux/construct
+	surgery_flags = SURGERY_INCISED | SURGERY_CLAMPED | SURGERY_RETRACTED | SURGERY_BROKEN | SURGERY_CONSTRUCT
 	skill_used = /datum/skill/craft/engineering
 	surgery_flags_blocked = null
