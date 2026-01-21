@@ -60,7 +60,8 @@
 		/obj/item/bodypart/taur/centipede,
 		/obj/item/bodypart/taur/sloog,
 		/obj/item/bodypart/taur/ant,
-		/obj/item/bodypart/taur/wasp
+		/obj/item/bodypart/taur/wasp,
+		/obj/item/bodypart/taur/insect
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID

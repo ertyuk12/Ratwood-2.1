@@ -59,7 +59,8 @@
 		/obj/item/bodypart/taur/centipede,
 		/obj/item/bodypart/taur/sloog,
 		/obj/item/bodypart/taur/ant,
-		/obj/item/bodypart/taur/wasp
+		/obj/item/bodypart/taur/wasp,
+		/obj/item/bodypart/taur/insect
 	)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
