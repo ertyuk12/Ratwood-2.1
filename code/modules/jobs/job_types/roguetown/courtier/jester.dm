@@ -30,8 +30,8 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogue/instrument/trumpet
 	belt = /obj/item/storage/belt/rogue/leather/black
-	beltr = /obj/item/rogue/instrument/drum
-	beltl = /obj/item/storage/belt/rogue/pouch
+	beltr = /obj/item/storage/belt/rogue/pouch
+	beltl = /obj/item/rogue/instrument/drum
 	head = /obj/item/clothing/head/roguetown/jester
 	neck = /obj/item/clothing/neck/roguetown/coif
 	backpack_contents = list(/obj/item/storage/keyring/servant)
