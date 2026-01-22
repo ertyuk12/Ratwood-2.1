@@ -166,7 +166,7 @@ Given the nature of Psydon, two of these are INTENDED to be refluffed Tennite sp
 	miracle = TRUE
 	devotion_cost = 80
 
-/obj/effect/proc_holder/spell/self/psydonic_sacrosanctity/cast(mob/living/user)
+/obj/effect/proc_holder/spell/self/psydonic_sacrosanctity/cast(mob/living/carbon/human/user)
 	if(!isliving(user))
 		return FALSE
 	user.blood_volume = max(user.blood_volume+200, 0)
@@ -196,7 +196,7 @@ Given the nature of Psydon, two of these are INTENDED to be refluffed Tennite sp
 	miracle = TRUE
 	devotion_cost = 100
 
-/obj/effect/proc_holder/spell/self/psydonic_inviolability/cast(mob/living/user)
+/obj/effect/proc_holder/spell/self/psydonic_inviolability/cast(mob/living/carbon/human/user)
 	if(!isliving(user))
 		return FALSE
 	user.blood_volume = max(user.blood_volume-300, 0)//RAAAA!!!!
