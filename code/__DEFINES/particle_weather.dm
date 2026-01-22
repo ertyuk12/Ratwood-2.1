@@ -7,11 +7,13 @@
 #define PARTICLEWEATHER_BLOODRAIN "weather_blood"
 #define PARTICLEWEATHER_LEAVES "weather_leaves"
 #define PARTICLEWEATHER_SAKURA "weather_sakura"
+#define PARTICLEWEATHER_SAND "weather_sand"
 
 GLOBAL_LIST_EMPTY(weather_act_upon_list)
 
 /// Weather immunities, also protect mobs inside them.
 #define TRAIT_SNOWSTORM_IMMUNE "snowstorm_immune"
+#define TRAIT_SANDSTORM_IMMUNE "sandstorm_immune"
 #define TRAIT_WEATHER_IMMUNE "weather_immune" //Immune to ALL weather effects.
 #define TRAIT_RAINSTORM_IMMUNE "rainstorm_immune"
 

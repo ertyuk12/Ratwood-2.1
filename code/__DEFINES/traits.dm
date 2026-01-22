@@ -212,6 +212,7 @@
 #define TRAIT_NOHUNGER	"Foodless"
 #define TRAIT_DARKVISION "Darksight"
 #define TRAIT_NOCSHADES "Nocshaded"
+#define TRAIT_SANDSTORMED "Sandstormed"
 #define TRAIT_LIGHT_STEP	"Light Step"
 #define TRAIT_AZURENATIVE "Vale Native"
 #define TRAIT_SLEUTH	"Sleuth"

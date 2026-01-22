@@ -171,6 +171,17 @@
 	icon_state = "inqvision"
 	layer = BLIND_LAYER
 
+/atom/movable/screen/fullscreen/nearsight
+	icon_state = "inqvision"
+	layer = CRIT_LAYER
+	plane = FULLSCREEN_PLANE
+
+/atom/movable/screen/fullscreen/dustoverlay
+	icon_state = "sandstorm"
+	layer = CRIT_LAYER
+	plane = FULLSCREEN_PLANE
+	color = "#C3b091"
+	alpha = 125
 /atom/movable/screen/fullscreen/blackimageoverlay
 	icon_state = "blackimageoverlay"
 	layer = BLIND_LAYER

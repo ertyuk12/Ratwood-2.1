@@ -30,3 +30,8 @@
 		)
 	mid_length = 30 SECONDS
 	volume = 150
+
+/datum/looping_sound/sandstorm
+	mid_sounds = 'sound/weather/sand/weather_sandstorm.ogg'
+	mid_length = 14 SECONDS
+	volume = 150
