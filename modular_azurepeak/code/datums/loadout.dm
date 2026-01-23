@@ -206,9 +206,9 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Tricorn Hat"
 	path = /obj/item/clothing/head/roguetown/helmet/tricorn
 
-/datum/loadout_item/scarf
-	name = "Scarf"
-	path = /obj/item/clothing/head/roguetown/scarf
+/datum/loadout_item/maidband
+    name = "Maid's Headband"
+    path = /obj/item/clothing/head/roguetown/maidband
 
 /datum/loadout_item/nurseveil
 	name = "Nurse's Veil"
@@ -402,6 +402,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Poncho"
 	path = /obj/item/clothing/cloak/poncho
 
+/datum/loadout_item/guardhood
+	name = "Guard's Hood"
+	path = /obj/item/clothing/cloak/stabard/guardhood
+
 //SHOES
 /datum/loadout_item/darkboots
 	name = "Dark Boots"
@@ -504,6 +508,18 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Striped Tunic"
 	path = /obj/item/clothing/suit/roguetown/armor/workervest
 
+/datum/loadout_item/formalshirt
+    name = "Formal Shirt"
+    path = /obj/item/clothing/suit/roguetown/shirt/undershirt/formal
+
+/datum/loadout_item/servantdress
+    name = "Dress, Servant"
+    path = /obj/item/clothing/suit/roguetown/shirt/dress/maid/servant
+
+/datum/loadout_item/maiddress
+    name = "Dress, Maid"
+    path = /obj/item/clothing/suit/roguetown/shirt/dress/maid
+
 /datum/loadout_item/dress
 	name = "Dress"
 	path = /obj/item/clothing/suit/roguetown/shirt/dress/gen
@@ -596,6 +612,14 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Leather Tights"
 	path = /obj/item/clothing/under/roguetown/trou/leathertights
 
+/datum/loadout_item/formalshorts
+    name = "Formal Shorts"
+    path = /obj/item/clothing/under/roguetown/trou/formal/shorts
+
+/datum/loadout_item/formaltrousers
+    name = "Formal Trousers"
+    path = /obj/item/clothing/under/roguetown/trou/formal
+
 /datum/loadout_item/trou
 	name = "Work Trousers"
 	path = /obj/item/clothing/under/roguetown/trou
@@ -644,6 +668,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/exoticsilkbelt
 	name = "Exotic Silk Belt"
 	path = /obj/item/storage/belt/rogue/leather/exoticsilkbelt
+
+/datum/loadout_item/butlersuspenders
+    name = "Suspenders"
+    path = /obj/item/storage/belt/rogue/leather/suspenders/butler
 
 /datum/loadout_item/ragmask
 	name = "Rag Mask"
@@ -735,7 +763,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 // BELTS
 /datum/loadout_item/belt_cloth
 	name = "Cloth Sash"
-	path = /obj/item/storage/belt/rogue/leather/cloth
+	path = /obj/item/storage/belt/rogue/leather/sash
 
 /datum/loadout_item/belt_rope
 	name = "Rope Belt"
@@ -887,6 +915,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/tribal_cloak
 	name = "Tribal Cloak"
 	path = /obj/item/clothing/cloak/tribal
+
+/datum/loadout_item/maidapron
+    name = "Maid's Apron"
+    path = /obj/item/clothing/cloak/apron/maid
 
 /datum/loadout_item/battlenun_cloak
 	name = "Nun Cloak"
@@ -1573,7 +1605,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 
 /datum/loadout_item/tri_grenzelhoft_boots
 	name = "Grenzelhoft Boots"
-	path = /obj/item/clothing/shoes/roguetown/grenzelhoft
+	path = /obj/item/clothing/shoes/roguetown/boots/grenzelhoft
 
 
 /datum/loadout_item/tri_kazengun_boots
