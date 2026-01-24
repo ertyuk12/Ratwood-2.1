@@ -76,6 +76,8 @@ Rusted metals distantly grind in anoxic pus-condensate in-tune with the Signal. 
 #define DETAIL_TEXT_HIS_VAULT ""
 #define DETAIL_TEXT_FISHMAN_DUNGEON ""
 
+#define DETAIL_TEXT_BLOODY_ARENA "This place smells like iron curdleing on rust. A giant coliseum. Blood, Dirt and Sand.. "
+
 // Forsaken Cathedral // Wretched Ghrotto
 #define DETAIL_TEXT_FORSAKEN_CATHEDRAL ""
 #define DETAIL_TEXT_WRETCHED_TEMPLE "A place used for worship of the wretched inhumen. Dejected by the followers of the ten, those that come here seek salvation in other forms."

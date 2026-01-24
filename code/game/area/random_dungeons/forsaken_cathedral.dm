@@ -27,3 +27,13 @@
 	droning_sound_night = 'sound/music/impish.ogg'
 	converted_type = /area/rogue/outdoors/dungeon1
 	detail_text = DETAIL_TEXT_WRETCHED_CAMP
+
+/area/rogue/under/cave/inhumen/wretch/graggarena
+	name = "GRAGGITE ARENA"
+	icon_state = "indoors"
+	first_time_text = "BLOODY ARENA"
+	droning_sound = 'sound/ambience/inferno.ogg'
+	droning_sound_dusk = 'sound/ambience/inferno.ogg'
+	droning_sound_night = 'sound/ambience/inferno.ogg'
+	converted_type = /area/rogue/outdoors/dungeon1
+	detail_text = DETAIL_TEXT_BLOODY_ARENA
