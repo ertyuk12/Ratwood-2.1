@@ -1421,6 +1421,46 @@
 	max_blade_int = 200
 	smeltresult = /obj/item/ingot/steel
 
+/obj/item/rogueweapon/spear/otava
+	name = "banner of Otava"
+	desc = "A banner carrying the colors of the Principality of Otava, turned into a formidable steel pike. \
+	Only seen held by the most loyal of the Otavan Holy See's men."
+	icon = 'icons/roguetown/weapons/polearms64.dmi'
+	icon_state = "standard"
+	force = 15	//ideally, two-hands
+	force_wielded = 33 // It's basically a boar spear
+	wdefense = 6 // A little bit extra
+	max_blade_int = 230
+	max_integrity = 280	//-20 than the actual ducal standard
+	smeltresult = /obj/item/ingot/steel
+	resistance_flags = FIRE_PROOF
+
+/obj/item/rogueweapon/spear/otava/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		pic.color = "#FFA500"
+		add_overlay(pic)
+
+/obj/item/rogueweapon/spear/otava/Initialize()
+	. = ..()
+	// toying a bit to see if i can make it be orange
+	detail_tag = "_det"
+	detail_color = "#FFA500"
+	update_icon()
+	GLOB.lordcolor += src
+
+/obj/item/rogueweapon/spear/otava/lordcolor(primary,secondary)
+	// Ignore incoming colors, always use orange
+	detail_tag = "_det"
+	detail_color = "#FFA500"
+	update_icon()
+
+/obj/item/rogueweapon/spear/otava/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
 /obj/item/rogueweapon/spear/boar/frei
 	name = "Aavnic lándzsa"
 	desc = "A regional earspoon lance with a carved handle, adorned with the colours of the Freifechters. These are smithed by the legendary armourers of Vyšvou and given to distinguished lancers upon their graduation."
