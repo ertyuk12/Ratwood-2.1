@@ -151,6 +151,11 @@
  *
  */
 /datum/particle_weather/proc/start(color)
+	var/datum/controller/subsystem/ParticleWeather/PW = SSParticleWeather
+
+	if(PW.queued_weather == src)	//We want to clear weather from the subsystem 'queued_weather' on start
+		PW.queued_weather = null
+		PW.queued_weather_start_time = null
 	if(running)
 		return //some cheeky git has started you early
 	weather_duration = rand(weather_duration_lower, weather_duration_upper)
@@ -434,3 +439,10 @@
 			continue
 		if(can_weather(M))
 			to_chat(M, warning_message)
+	notify_queued()
+
+/datum/particle_weather/proc/notify_queued()
+	for (var/obj/item/barometer/B in GLOB.weather_observers)
+		if (QDELETED(B))
+			continue
+		B.on_weather_queued(src)

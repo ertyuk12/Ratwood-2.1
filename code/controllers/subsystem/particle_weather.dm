@@ -7,8 +7,8 @@ SUBSYSTEM_DEF(ParticleWeather)
 	var/list/elligble_weather = list()
 	var/datum/particle_weather/runningWeather
 	var/datum/weather_effect/weather_special_effect
-	// var/list/next_hit = list() //Used by barometers to know when the next storm is coming
-
+	var/queued_weather_start_time  //Used by barometers to know when the next storm is coming
+	var/datum/particle_weather/queued_weather
 	var/particles/weather/particleEffect
 	var/obj/weatherEffect
 
@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 		if("Rockhill")
 			selected_forecast = new /datum/forecast/rockhill()
 
-		else if("Dunworld")
+		else if("Dun World")
 			selected_forecast = new /datum/forecast/dunworld()
 
 		else if("Alashur")//placeholder, update with desertmap
@@ -72,6 +72,8 @@ SUBSYSTEM_DEF(ParticleWeather)
 		runningWeather.start(color)
 	else
 		var/randTime = rand(0, 6000) + initial(runningWeather.weather_duration_upper)
+		queued_weather = runningWeather
+		queued_weather_start_time = world.time + randTime
 		runningWeather.send_warning()
 		addtimer(CALLBACK(runningWeather, /datum/particle_weather/proc/start), randTime, TIMER_UNIQUE|TIMER_STOPPABLE) //Around 0-10 minutes between weathers
 

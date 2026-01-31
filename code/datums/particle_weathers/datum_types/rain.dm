@@ -41,7 +41,7 @@
 	wash_atom(L,CLEAN_WEAK)
 
 /datum/particle_weather/rain_storm
-	name = "Rain"
+	name = "Rain Storm"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/rain
 	warning_message = span_danger("Dark clouds gather up above the realm, sparks arcing between heavenly reaches.")

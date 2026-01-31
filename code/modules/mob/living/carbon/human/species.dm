@@ -2087,29 +2087,31 @@ GLOBAL_VAR_INIT(cold_breath_overlay, mutable_appearance(
 			// Environment is heating us
 			if(H.bodytemperature < BODYTEMP_NORMAL_MIN)
 				// Heating is GOOD (we are colder then norm)
-				protection = H.get_cold_protection(loc_temp)
+				protection = (0.25 * H.get_cold_protection(loc_temp))
 			else
 				// Heating is BAD (we are hotter then norm)
-				protection = 1 - H.get_heat_protection(loc_temp)
+				protection = (-0.125 * (1 - H.get_heat_protection(loc_temp)))
 
-			var/step = 0.25 + (0.25 * protection)
+			var/step = 0.25 + (protection)
 			env_adjust = step
 
 		else if(loc_temp < H.bodytemperature)	//environment is colder then us
 			// Environment is cooling us
 			if(H.bodytemperature > BODYTEMP_NORMAL_MAX)
 				// Cooling is GOOD (we are hotter then norm)
-				protection = H.get_heat_protection(loc_temp)
+				protection = (0.25 * H.get_heat_protection(loc_temp))
 			else
 				// Cooling is BAD (we are colder then norm)
-				protection = 1 - H.get_cold_protection(loc_temp)
+				protection = (-0.125 * (1 - H.get_cold_protection(loc_temp)))
 
-			var/step = 0.25 + (0.25 * protection)
+			var/step = 0.25 + (protection)
 			env_adjust = -step
 		if(loc_temp <= BODYTEMP_NORMAL_MIN)
-			H.add_overlay(GLOB.cold_breath_overlay)
+			if(!(GLOB.cold_breath_overlay in H.overlays))
+				H.add_overlay(GLOB.cold_breath_overlay)
 		else
-			H.cut_overlay(GLOB.cold_breath_overlay)
+			if(GLOB.cold_breath_overlay in H.overlays)
+				H.cut_overlay(GLOB.cold_breath_overlay)
 
 		if(env_adjust)
 			H.adjust_bodytemperature(env_adjust)
@@ -2123,6 +2125,7 @@ GLOBAL_VAR_INIT(cold_breath_overlay, mutable_appearance(
 			//FIRE_STACKS Human damage taken from fire is determined here.
 
 		else	//level 1 heat
+			H.remove_movespeed_modifier(MOVESPEED_ID_COLD)
 			if(prob(20))
 				to_chat(H,span_warning("Sweat drips down my brow."))
 
@@ -2137,10 +2140,11 @@ GLOBAL_VAR_INIT(cold_breath_overlay, mutable_appearance(
 			H.add_movespeed_modifier(MOVESPEED_ID_COLD, override = TRUE, multiplicative_slowdown = ((BODYTEMP_COLD_DAMAGE_LIMIT - H.bodytemperature) / COLD_SLOWDOWN_FACTOR), blacklisted_movetypes = FLOATING)
 
 		else	//level 1 cold
+			H.remove_movespeed_modifier(MOVESPEED_ID_COLD)
 			if(prob(15))
 				H.emote(pick("shiver"))
 			if(prob(20))
-				to_chat(H,span_danger("I can see my breath."))
+				to_chat(H,span_warning("I can see my breath."))
 	else
 		H.clear_alert("temp")
 		H.remove_movespeed_modifier(MOVESPEED_ID_COLD)

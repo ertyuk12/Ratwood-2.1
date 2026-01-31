@@ -15,10 +15,10 @@
 
 
 /datum/particle_weather/blood_rain_gentle
-	name = "Rain"
+	name = "Strange Rain"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/blood_rain
-	warning_message = span_danger("The air grows heavy- something is very wrong.")
+	warning_message = span_greenannounce("The air grows heavy- something is very wrong.")
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/rain)
 	indoor_weather_sounds = list(/datum/looping_sound/indoor_rain)
@@ -36,10 +36,10 @@
 	L.SoakMob(FULL_BODY)
 
 /datum/particle_weather/blood_rain_storm
-	name = "Rain"
+	name = "Strange Rainstorm"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/blood_rain
-
+	warning_message = span_greenannounce("The air grows heavy- something is very wrong.")
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/storm)
 	indoor_weather_sounds = list(/datum/looping_sound/indoor_rain)

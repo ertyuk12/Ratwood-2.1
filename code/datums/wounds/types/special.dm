@@ -200,6 +200,7 @@
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_MISSING_NOSE, "[type]")
 
+
 /datum/wound/cbt
 	name = "testicular torsion"
 	check_name = span_userdanger("<B>NUTCRACK</B>")
@@ -460,3 +461,28 @@
 	if(istype(other, /datum/wound/burn))
 		return FALSE
 	return TRUE
+
+/datum/wound/heatstroke
+	name = "heatstroke"
+	check_name = span_warning("HEAD")
+	severity = 0
+	crit_message = "The world is spinning!"
+	whp = null
+	woundpain = 0
+	mob_overlay = "cut"
+	can_sew = FALSE
+	can_cauterize = FALSE
+	critical = FALSE
+	sleep_healing = 0
+	bleed_rate = 0
+	clotting_threshold = 0
+	clotting_rate = 0
+	bypass_bloody_wound_check = TRUE
+
+/datum/wound/heatstroke/on_life()
+	. = ..()
+	if(!iscarbon(owner))
+		return
+	var/mob/living/carbon/carbon_owner = owner
+	if(!carbon_owner.stat && prob(5))
+		carbon_owner.vomit(1, blood = TRUE, stun = TRUE)

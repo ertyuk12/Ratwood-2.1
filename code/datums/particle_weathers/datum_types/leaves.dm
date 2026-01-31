@@ -27,7 +27,7 @@
 	wind                   = 1
 
 /datum/particle_weather/leaves_gentle
-	name = "Rain"
+	name = "Strong Winds"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/leaves
 	warning_message = span_greenannounce("Light winds blow in through the forests across the realm.")
@@ -42,7 +42,7 @@
 	target_trait = PARTICLEWEATHER_LEAVES
 
 /datum/particle_weather/leaves_storm
-	name = "Rain"
+	name = "Heavy Winds"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/leaves
 	warning_message = span_greenannounce("Heavy winds blow in through the forests across the realm.")
@@ -57,7 +57,7 @@
 	target_trait = PARTICLEWEATHER_LEAVES
 
 /datum/particle_weather/sakura_gentle
-	name = "Rain"
+	name = "Calming winds"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/leaves/sakura
 	warning_message = span_danger("Love reigns and a calm wind runs through floral trees")
@@ -72,7 +72,7 @@
 	target_trait = PARTICLEWEATHER_SAKURA
 
 /datum/particle_weather/sakura_storm
-	name = "Rain"
+	name = "Calming winds"
 	desc = "Gentle Rain, la la description."
 	particleEffectType = /particles/weather/leaves/sakura
 	warning_message = span_danger("Love reigns and a heavy wind runs through floral trees")

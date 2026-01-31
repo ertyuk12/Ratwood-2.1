@@ -216,7 +216,7 @@
 						if(AM.loc == src)
 							water_overlay.layer = ABOVE_MOB_LAYER
 							water_overlay.plane = GAME_PLANE_HIGHEST
-			if(L.bodytemperature > BODYTEMP_COLD_LEVEL_ONE_MAX + 3)	//swimming in water will cool you down and chill you.
+			if(L.bodytemperature > BODYTEMP_COLD_LEVEL_ONE_MAX + 10)	//swimming in water will cool you down and chill you.
 				L.adjust_bodytemperature(-10)
 		if(!istype(L, /mob/living/carbon/human/species/skeleton))
 			return
