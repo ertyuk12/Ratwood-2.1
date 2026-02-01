@@ -24,8 +24,9 @@
 		"ten": "tenn",
 		"archivist": "bookie",
 		"su": "shu",
-		"my": "m'",
+		"my ": "m'",
         "you": "yew",
+		" you": "'ya",
         "your": "yous",
 		"butt": "arse",
 		"copper": "coppen",
@@ -37,7 +38,8 @@
 		"re": "s",
 		"ve": "s'a",
 		"he": "'",
-		"ie": "y"
+		"ie": "y",
+		"c": "ck"
     },
 	"multiword": {
 	},
