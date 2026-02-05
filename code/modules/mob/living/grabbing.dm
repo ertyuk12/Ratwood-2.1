@@ -442,9 +442,8 @@
 		if(armor_block > 1)
 			C.apply_damage(damage, BRUTE, limb_grabbed, armor_block)
 	else 
-		armor_block = C.run_armor_check(limb_grabbed, "slash")
+		armor_block = C.run_armor_check(limb_grabbed, "blunt")
 		C.apply_damage(damage, BRUTE, limb_grabbed, armor_block)
-	C.apply_damage(damage, BRUTE, limb_grabbed, armor_block)
 	limb_grabbed.bodypart_attacked_by(BCLASS_TWIST, damage, user, sublimb_grabbed, crit_message = TRUE)
 	limb_grabbed.bodypart_attacked_by(BCLASS_TWIST, damage, user, sublimb_grabbed, crit_message = TRUE)
 	C.visible_message(span_danger("[user] twists [C]'s [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]"), \
