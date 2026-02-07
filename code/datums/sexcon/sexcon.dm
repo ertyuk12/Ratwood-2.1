@@ -865,6 +865,8 @@
 	var/datum/sex_action/action = SEX_ACTION(current_action)
 	show_progress = 1
 	action.on_start(user, target)
+	find_occupying_bed()
+	find_occupying_grass()
 	while(TRUE)
 		if(!isnull(target.client) && target.client.prefs.sexable == FALSE) //Vrell - Needs changed to let me test sex mechanics solo
 			break
@@ -880,8 +882,6 @@
 			break
 		if(desire_stop)
 			break
-		find_occupying_bed()
-		find_occupying_grass()
 		find_ringing_collar()
 		action.on_perform(user, target)
 		// It could want to finish afterwards the performed action
