@@ -57,6 +57,10 @@
 	desc = "To quench the woman's thirst."
 	can_custom = FALSE
 
+/obj/item/dildo/examine()
+	. = ..()
+	. += "[span_notice("It can be attached onto most belts.")]"
+
 /obj/item/dildo/proc/do_silver_check(mob/living/victim)
 	if(!is_silver || !HAS_TRAIT(victim, TRAIT_SILVER_WEAK))
 		return
