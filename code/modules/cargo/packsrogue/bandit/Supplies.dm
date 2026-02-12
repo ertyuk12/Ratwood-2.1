@@ -48,6 +48,16 @@
 	cost = 5
 	contains = list(/obj/item/paper/scroll)
 
+/datum/supply_pack/rogue/Supplies/paper
+	name = "Paper"
+	cost = 2
+	contains = list(/obj/item/paper)
+
+/datum/supply_pack/rogue/Supplies/quill
+	name = "Quill"
+	cost = 2
+	contains = list(/obj/item/natural/feather)
+
 /datum/supply_pack/rogue/Supplies/hardtack
 	name = "Hardtack"
 	cost = 10
