@@ -106,6 +106,11 @@
 	cost = 20
 	contains = list(/obj/item/clothing/suit/roguetown/armor/leather/heavy)
 
+/datum/supply_pack/rogue/Brigand/leather/hcoat
+	name = "Hardened Leather Coat"
+	cost = 30
+	contains = list(/obj/item/clothing/suit/roguetown/armor/leather/heavy/coat)
+
 /datum/supply_pack/rogue/Brigand/hgambeson
 	name = "Heavy Gambeson"
 	cost = 20
