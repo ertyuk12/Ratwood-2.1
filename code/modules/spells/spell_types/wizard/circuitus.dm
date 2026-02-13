@@ -3,7 +3,7 @@
 	desc = "Noc's gift to mankind, the ability to shape the arcyne with mortal speech.<BR>Requires other spells to use to its full potential."
 	range = 14
 	selection_type = "range"
-	recharge_time = 3 SECONDS
+	recharge_time = 30 SECONDS
 	releasedrain = 0
 	chargedrain = 0
 	chargetime = 0
@@ -46,7 +46,6 @@
 	if(spell_process.parse_and_execute(incantation))
 		return TRUE
 	else
-		revert_cast()
 		spell_process = null
 		return FALSE
 

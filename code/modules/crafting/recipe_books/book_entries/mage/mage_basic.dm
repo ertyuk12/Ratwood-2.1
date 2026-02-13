@@ -62,9 +62,11 @@
 	<BR>
 	This incantation (if one has the requisite knowledge of fireball) will launch a blast of flame before the magician's face. The incantation specifies this:
 	<BR>
+	<BR>
 	Prospectus - Stores the position you are facing as a coordinate (which we store as X, Y) within the arcane. This is stored as an iota.
 	<BR>
 	Ignis! - A spell command. This takes the previously specified coordinate and performs the spell at its location. The spell, in this instance, being a fireball.
+	<BR>
 	<BR>
 	All spell commands must be the final word of an incantation, and must be shouted (!) in order to take effect.
 	<BR>
