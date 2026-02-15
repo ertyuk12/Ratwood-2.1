@@ -1187,13 +1187,16 @@
 	return TRUE
 
 /datum/spell_command/flames/proc/do_fire_damage(list/turfs, strength)
+	var/flame_strength = 0
+	if(strength > 0)
+		flame_strength = 1
 	for(var/turf/T in turfs)
-		explosion(T, -1, 0, strength, strength + 1, 0, flame_range = strength)
+		explosion(T, -1, 0, strength, strength + 1, 0, flame_range = flame_strength)
 
 		for(var/mob/living/L in T.contents)
 			if(L.anti_magic_check())
 				continue
-			L.adjust_fire_stacks(2 + strength)
+			L.adjust_fire_stacks(1 + strength)
 			if(L.fire_stacks > 0)
 				L.fire_act(1, 5)
 			L.adjustFireLoss(15 + (strength * 10))
