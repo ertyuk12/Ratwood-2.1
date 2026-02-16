@@ -35,7 +35,7 @@
 	/// The bed (if) we're occupying, update on starting an action
 	var/obj/structure/bed/rogue/bed = null
 	var/target_on_bed = FALSE
-	/// The table/pillory (if) target is lying on, update on starting an action
+	/// The table/pillory (if) target is lying/latching on, update on starting an action
 	var/obj/structure/table_or_pillory = null
 	/// The bush (if) we're on top of, update on starting an action
 	var/obj/structure/flora/roguegrass/grassy_knoll = null
