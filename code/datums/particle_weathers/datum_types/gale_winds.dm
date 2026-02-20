@@ -100,7 +100,7 @@ GLOBAL_LIST_EMPTY(active_abyssors_rage)
 	try_z_throw(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		to_chat(H, span_extremelybig("You are thrown about by the [src]!"))
+		to_chat(H, span_extremelybig("You are thrown about by [src]!"))
 		H.set_resting(TRUE, TRUE)
 		H.Immobilize(2 SECONDS)
 
