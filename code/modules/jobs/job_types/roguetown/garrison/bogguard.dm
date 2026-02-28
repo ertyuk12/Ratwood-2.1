@@ -175,6 +175,7 @@
 			"Path of the Volf"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/wolf,
 			"Path of the Ram"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/goat,
 			"Path of the Bear"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/bear,
+			"Path of the Frog"		= /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth,
 			"None"
 		)
 		var/helmchoice = input(H, "Choose your Path.", "HELMET SELECTION") as anything in helmets
