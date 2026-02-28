@@ -35,7 +35,7 @@
 		/datum/skill/craft/tanning = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/cooking = SKILL_LEVEL_NOVICE,
 		/datum/skill/labor/butchering = SKILL_LEVEL_EXPERT,
-		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE,			//Even Robin Hood knew how to read n write
+		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE, //Even Robin Hood knew how to read n write
 	)
 
 /datum/outfit/job/roguetown/wretch/poacher/pre_equip(mob/living/carbon/human/H)
@@ -64,17 +64,17 @@
 		H.set_blindness(0)
 		switch(fashion_choice)
 			if("Cunning Archer") //Robin Hood-esque outfit with a funny hat and a green rain cloak.
-				head = /obj/item/clothing/head/roguetown/bardhat
-				cloak = /obj/item/clothing/cloak/raincloak/green
-			if("Ruthless Hunter") //Bloodborne-esque outfit with a longcoat and an oddly familiar hat.
 				head = /obj/item/clothing/head/roguetown/duelhat
+				cloak = /obj/item/clothing/cloak/raincloak/green
+			if("Ruthless Hunter") //Bloodborne-esque outfit with a longcoat and a tricorn.
+				head = /obj/item/clothing/head/roguetown/helmet/tricorn
 				cloak = /obj/item/clothing/suit/roguetown/armor/longcoat
 			if("Unrelenting Beastslayer") //Classic Poacher look with a dark green hood and a fur cloak.
 				head = /obj/item/clothing/head/roguetown/roguehood/darkgreen
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak/darkgreen
 			if("Disgraced Warden") //Warden's antlered shroud and warden's cloak. Marginally better protection but makes you look a lot more suspicious.
-				head = /obj/item/clothing/head/roguetown/roguehood/warden/antler
-				cloak = /obj/item/clothing/cloak/wardencloak
+				head = /obj/item/clothing/head/roguetown/roguehood/poacher
+				cloak = /obj/item/clothing/cloak/poachercloak
 		var/weapons = list("Dagger", "Axe", "Cudgel")
 		var/weapon_choice = input(H, "Choose your melee weapon.", "TAKE UP ARMS") as anything in weapons
 		switch(weapon_choice)
