@@ -59,6 +59,8 @@
 	var/show_progress = 1
 	/// When TRUE, try_do_moan does nothing (used for actions that can be done subtly)
 	var/suppress_moan = FALSE
+	/// Allow players to decide if they want to subtly do this action or not (only for actions that can be done subtly)
+	var/do_subtle_action = FALSE
 	/// Knot based variables
 	var/do_knot_action = FALSE
 	var/knotted_status = KNOTTED_NULL // knotted state and used to prevent multiple knottings when we do not handle that case
@@ -803,7 +805,12 @@
 		dat += "</center><center><a href='?src=[REF(src)];task=toggle_bottom_exposed'>[bottom_exposed ? "PINTLE EXPOSED" : "PINTLE CONCEALED"]</a>"
 	if(current_action && !desire_stop)
 		var/datum/sex_action/action = SEX_ACTION(current_action)
-		if(action.knot_on_finish && knot_penis_type())
+		if(action.subtle_supported)
+			if(do_subtle_action)
+				dat += " | <a href='?src=[REF(src)];task=toggle_subtle'>DOING SUBTLY</a>"
+			else
+				dat += " | <a href='?src=[REF(src)];task=toggle_subtle'>DOING VISIBLY</a>"
+		else if(action.knot_on_finish && knot_penis_type())
 			if(do_knot_action)
 				dat += " | <a href='?src=[REF(src)];task=toggle_knot'><font color='#d146f5'>USING KNOT</font></a>"
 			else
@@ -896,6 +903,8 @@
 			action_category = SEX_CATEGORY_HANDS
 		if("category_penetrate")
 			action_category = SEX_CATEGORY_PENETRATE
+		if("toggle_subtle")
+			do_subtle_action = !do_subtle_action
 		if("toggle_knot")
 			do_knot_action = !do_knot_action
 	show_ui()
@@ -954,6 +963,7 @@
 	var/datum/sex_action/action = SEX_ACTION(current_action)
 	show_progress = 1
 	suppress_moan = FALSE
+	do_subtle_action = TRUE // always start subtle supported actions with subtle mode on
 	action.on_start(user, target)
 	find_occupying_furniture()
 	find_occupying_grass()
@@ -1114,13 +1124,6 @@
 			return 1.2
 		if(SEX_SPEED_EXTREME)
 			return 1.4
-
-/datum/sex_controller/proc/get_random_chance_for_stealth_action()
-	if(force < SEX_FORCE_MID && speed < SEX_SPEED_MID) // always subtle
-		return TRUE
-	if(force < SEX_FORCE_EXTREME && speed < SEX_SPEED_EXTREME)
-		return !prob(force > SEX_FORCE_MID ? 5 : 2) // roll the dice, diceman
-	return FALSE // we go loud
 
 /datum/sex_controller/proc/get_force_string()
 	switch(force)

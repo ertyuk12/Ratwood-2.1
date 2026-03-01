@@ -3,6 +3,7 @@
 	check_same_tile = FALSE
 	category = SEX_CATEGORY_HANDS
 	target_sex_part = SEX_PART_ANUS
+	subtle_supported = TRUE
 
 /datum/sex_action/masturbate_other_anus/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -17,11 +18,11 @@
 	return TRUE
 
 /datum/sex_action/masturbate_other_anus/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_warning("[user] starts fingering [target]'s butt..."), vision_distance = 1)
+	user.visible_message(span_warning("[user] starts fingering [target]'s butt..."), vision_distance = (user.sexcon.do_subtle_action ? 1 : DEFAULT_MESSAGE_RANGE))
 	user.sexcon.show_progress = 0
 
 /datum/sex_action/masturbate_other_anus/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	var/do_subtle = user.sexcon.get_random_chance_for_stealth_action()
+	var/do_subtle = user.sexcon.do_subtle_action
 	user.sexcon.show_progress = !do_subtle
 	user.sexcon.suppress_moan = target.sexcon.suppress_moan = do_subtle
 
@@ -35,7 +36,7 @@
 	user.sexcon.suppress_moan = target.sexcon.suppress_moan = FALSE
 
 /datum/sex_action/masturbate_other_anus/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_warning("[user] stops fingering [target]'s butt."), vision_distance = 1)
+	user.visible_message(span_warning("[user] stops fingering [target]'s butt."), vision_distance = (user.sexcon.do_subtle_action ? 1 : DEFAULT_MESSAGE_RANGE))
 
 /datum/sex_action/masturbate_other_anus/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())
