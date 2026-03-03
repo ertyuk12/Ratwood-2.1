@@ -22,10 +22,10 @@
 		/datum/job/roguetown/physician = "You are a master physician, trusted by the Duke themself to administer expert care to the Royal family, the court, \
 		its protectors and its subjects. While primarily a resident of the keep in the manors medical wing, you also have access \
 		 to the local hightown clinic, where lesser licensed apothecaries ply their trade under your occasional passing tutelage.",
-		/datum/job/roguetown/bogguardsman = "Typically a denizen of the sparsely populated mountains and swamps surrounding Rockhill, you volunteered up with the wardens\
-				-a group of ranger types who keep a vigil over Lowtown and the untamed wilderness. \
-				While typically under less supervision than the Men at Arms stationed in hightown, you will be called upon as members of the garrison by the Marshal or the Crown. \
-				Serve their will as the first line of defence from threats beyond the borders of civilisation, hold the vanguard fortress, and try to survive another day."
+		// /datum/job/roguetown/bogguardsman = "Typically a denizen of the sparsely populated mountains and swamps surrounding Rockhill, you volunteered up with the wardens\
+		// 		-a group of ranger types who keep a vigil over Lowtown and the untamed wilderness. \
+		// 		While typically under less supervision than the Men at Arms stationed in hightown, you will be called upon as members of the garrison by the Marshal or the Crown. \
+		// 		Serve their will as the first line of defence from threats beyond the borders of civilisation, hold the vanguard fortress, and try to survive another day."
 		// /datum/job/roguetown/archivist = "CHANGE THIS!! - Teach people skills, whether DIRECTLY or by writing SKILLBOOKS. You and the Veteran next door teach people shit."
 	)
 	// species_adjust = list()

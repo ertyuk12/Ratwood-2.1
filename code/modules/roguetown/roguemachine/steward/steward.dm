@@ -40,6 +40,7 @@
 	daily_payments["Man at Arms"] = 30
 	daily_payments["Dungeoneer"] = 30
 	daily_payments["Warden"] = 25
+	daily_payments["Vanguard"] = 15
 	daily_payments["Veteran"] = 30
 	daily_payments["Squire"] = 10
 	daily_payments["Seneschal"] = 40 //Manor-House
