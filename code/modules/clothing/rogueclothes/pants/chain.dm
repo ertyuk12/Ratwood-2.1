@@ -41,7 +41,7 @@
 	l_sleeve_status = SLEEVE_NOMOD
 	armor_class = ARMOR_CLASS_LIGHT//Steel version of splint leggings
 	w_class = WEIGHT_CLASS_NORMAL
-	//resistance_flags = FIRE_PROOF // these ones should be burning since is cloth + metal
+	resistance_flags = FIRE_PROOF
 	sewrepair = FALSE
 	smeltresult = /obj/item/ingot/steel
 
