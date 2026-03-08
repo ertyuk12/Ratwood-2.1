@@ -48,9 +48,8 @@
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	belt = /obj/item/storage/belt/rogue/leather/black
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/citywatch
 
-	beltl = /obj/item/rope/chain
 	beltr = /obj/item/rogueweapon/mace/cudgel
 	belt = /obj/item/storage/belt/rogue/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
@@ -58,7 +57,7 @@
 
 	backpack_contents = list(//Iron dagger and ale instead of red.
 		/obj/item/rogueweapon/huntingknife/idagger = 1,
-		/obj/item/rope/chain = 1,
+		/obj/item/rope/chain = 2,
 		/obj/item/storage/keyring/guardcastle = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		)
