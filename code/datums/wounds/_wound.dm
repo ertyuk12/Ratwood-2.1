@@ -293,9 +293,6 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		bleed_rate = amount
 		bodypart_owner.bleeding += bleed_rate
 
-	if(owner.hud_used?.zone_select)
-		owner.hud_used.zone_select.update_icon()
-
 /// Heals this wound by the given amount, and deletes it if it's healed completely
 /datum/wound/proc/heal_wound(heal_amount)
 	// Wound cannot be healed normally, whp is null
