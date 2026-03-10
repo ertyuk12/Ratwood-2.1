@@ -69,7 +69,7 @@
 
 /datum/supply_pack/rogue/adventure_supplies/gwstrap
 	name = "Great Weapon Strap"
-	cost = 20
+	cost = 25
 	contains = list(
 					/obj/item/rogueweapon/scabbard/gwstrap
 				)
