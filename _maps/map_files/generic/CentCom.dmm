@@ -4248,13 +4248,6 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/cave/inhumen/wretch/ghrotto)
-"ub" = (
-/obj/structure/bookcase/random/religion,
-/obj/machinery/light/rogue/candle/floorcandle/alt{
-	pixel_y = -25
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/cave/inhumen/wretch/ghrotto)
 "uc" = (
 /obj/item/natural/bone,
 /turf/open/water/river{
@@ -4979,9 +4972,6 @@
 "xW" = (
 /obj/structure/table/finestone,
 /obj/item/reagent_containers/glass/cup/skull,
-/obj/machinery/light/rogue/candle/floorcandle/alt{
-	pixel_y = -25
-	},
 /obj/structure/fluff/statue/gargoyle,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/cave/inhumen/wretch/ghrotto)
@@ -5226,7 +5216,6 @@
 /area/rogue/outdoors/banditcamp)
 "za" = (
 /obj/structure/zizo_bane,
-/obj/machinery/light/rogue/candle/blue,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/roguetree/underworld,
 /turf/open/floor/rogue/grasspurple,
@@ -7962,16 +7951,6 @@
 "Nx" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/vampire_manor)
-"Nz" = (
-/obj/structure/table/finestone,
-/obj/item/reagent_containers/glass/cup/skull{
-	pixel_x = 6
-	},
-/obj/machinery/light/rogue/candle/floorcandle/alt{
-	pixel_y = -25
-	},
-/turf/closed/mineral/rogue/bedrock,
-/area/rogue/under/cave/inhumen/wretch/camp)
 "NC" = (
 /obj/machinery/light/rogue/candle/floorcandle/alt{
 	pixel_y = -25
@@ -8955,16 +8934,6 @@
 /turf/open/floor/rogue/blocks{
 	icon_state = "bluestone"
 	},
-/area/rogue/under/cave/inhumen/wretch/camp)
-"SN" = (
-/obj/structure/table/church{
-	icon_state = "churchtable_end"
-	},
-/obj/item/candle/skull/lit{
-	pixel_y = 13
-	},
-/obj/machinery/light/rogue/candle/floorcandle,
-/turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen/wretch/camp)
 "SQ" = (
 /obj/structure/mineral_door/wood{
@@ -24286,7 +24255,7 @@ Az
 AR
 AR
 AR
-ub
+AR
 DH
 Rq
 iL
@@ -24671,7 +24640,7 @@ wL
 vb
 WQ
 WQ
-Nz
+WQ
 qp
 pL
 pL
@@ -25970,7 +25939,7 @@ Cd
 Cd
 Cd
 eU
-SN
+Ws
 qO
 qO
 qO
