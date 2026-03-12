@@ -10,7 +10,7 @@
 	// blacklist = list()
 	slot_adjust = list(
 		/datum/job/roguetown/manorguard = 4,
-		/datum/job/roguetown/warden = 3,
+		/datum/job/roguetown/warden = 4,
 	)
 	title_adjust = list(
 		/datum/job/roguetown/physician = list(display_title = "Court Physician"),
