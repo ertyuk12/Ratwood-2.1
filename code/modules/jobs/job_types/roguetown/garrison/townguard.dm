@@ -13,7 +13,7 @@
 	tutorial = "Responsible for the safety of the city and the enforcement of the law, \
 	you patrol the city streets, on the look out for crime and disorder. \
 	Armed with chains and a trusty beating stick, you are charged with catching \
-	thieves, vagrants and troublemakers, confiscating stolen times, and administering swift and orderly justice"
+	thieves, vagrants and troublemakers, confiscating illicit goods, and administering swift and orderly justice"
 	display_order = JDO_TOWNGUARD
 	whitelist_req = TRUE
 
@@ -103,7 +103,7 @@
 	..()
 	H.adjust_blindness(-3)
 	if(H.mind)
-		var/weapons = list("Stunmace & Shield","Polehammer", "Maul - 14STR Minimum", "Crossbow")
+		var/weapons = list("Stunmace & Shield","Polehammer", "Maul - +STR/CON, -SPD/PER", "Crossbow - +SPD/PER, -STR/CON")
 		var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 		H.set_blindness(0)
 		switch(weapon_choice)
@@ -115,20 +115,23 @@
 				r_hand = /obj/item/rogueweapon/eaglebeak
 				backl = /obj/item/rogueweapon/scabbard/gwstrap
 				H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 4, TRUE)
-			if("Maul - 14STR Minimum")
+			if("Maul - +STR/CON, -SPD/PER")
 				r_hand = /obj/item/rogueweapon/mace/maul
 				backl = /obj/item/rogueweapon/scabbard/gwstrap
 				H.adjust_skillrank_up_to(/datum/skill/combat/maces, 4, TRUE)
 				H.change_stat(STATKEY_STR, 1)
+				H.change_stat(STATKEY_CON, 1)
 				H.change_stat(STATKEY_SPD, -1)
 				H.change_stat(STATKEY_PER, -1)
-			if("Crossbow")
+			if("Crossbow - +SPD/PER, -STR/CON")
 				r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 				backl = /obj/item/quiver/bolts
 				H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 5, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/combat/bows, 4, TRUE)
 				H.change_stat(STATKEY_SPD, 1)
+				H.change_stat(STATKEY_PER, 1)
 				H.change_stat(STATKEY_STR, -1)
+				H.change_stat(STATKEY_CON, -1)
 
 		backpack_contents = list(
 			/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
