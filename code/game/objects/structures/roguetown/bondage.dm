@@ -135,6 +135,34 @@
 	. = ..()
 	M.reset_offsets("bed_buckle")
 
+/obj/structure/bondage/gloryhole/CanPass(atom/movable/mover, turf/target)
+	if(has_buckled_mobs())
+		return FALSE
+	return get_dir(loc, target) != SOUTH
+
+/obj/structure/bondage/gloryhole/Initialize(mapload)
+	. = ..()
+	init_connect_loc_element()
+
+/obj/structure/bondage/gloryhole/proc/init_connect_loc_element()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/bondage/gloryhole/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+
+	if(dir in CORNERDIRS)
+		return
+
+	if(isobserver(leaving))
+		return
+
+	if(get_dir(leaving.loc, new_location) != dir)
+		return
+
+	leaving.Bump(src)
+	return COMPONENT_ATOM_BLOCK_EXIT
+
 /obj/structure/bondage/torture_table
 	name = "torture table"
 	desc = "A cruel table meant for restraining captives."
