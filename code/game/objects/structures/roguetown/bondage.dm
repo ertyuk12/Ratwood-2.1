@@ -123,6 +123,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = GAME_PLANE_UPPER
 	buckleverb = "position"
+	max_buckled_mobs = 2
 	var/buckle_offset_x = 0
 	var/buckle_offset_y = 1
 
