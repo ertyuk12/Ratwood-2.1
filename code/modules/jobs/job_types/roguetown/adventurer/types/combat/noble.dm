@@ -86,6 +86,8 @@
 	virtue_restrictions = list(
 		/datum/virtue/utility/riding
 	)
+	subclass_stashed_items = list("Ducal Caparison (Saiga)" = /obj/item/caparison/azure, "Ducal Caparison (Fogbeast)" = /obj/item/caparison/fogbeast/azure)
+	extra_context = "This subclass receives a Ducal Caparison in its stash. Use the Saiga or Fogbeast version depending on your mount."
 
 /datum/outfit/job/roguetown/adventurer/knighte/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -131,3 +131,9 @@
 	color = COLOR_WHITE
 	detail_types = list("Quad" = "quad")
 	symbol_types = list("Psycross" = "psycross", "Astrata" = "astrata")
+
+/obj/item/caparison/fogbeast/azure
+	name = "azurean caparison"
+	desc = "A decorative piece of cloth meant to be used as a saddle decoration. It's adorned with ducal colours. This one fits on a Fogbeast."
+	caparison_state = "azure_caparison"
+	female_caparison_state = "azure_caparison"
