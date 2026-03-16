@@ -326,14 +326,6 @@
 		/datum/mob_descriptor/trait/graceful,
 		/datum/mob_descriptor/trait/scrappy,
 
-		/datum/mob_descriptor/trait/pale,
-		/datum/mob_descriptor/trait/tanned,
-		/datum/mob_descriptor/trait/dusky,
-		/datum/mob_descriptor/trait/crimson,
-		/datum/mob_descriptor/trait/cerulean,
-		/datum/mob_descriptor/trait/emerald,
-		/datum/mob_descriptor/trait/amber,
-
 		/datum/mob_descriptor/trait/cadaverous,
 		/datum/mob_descriptor/trait/harrowed,
 
@@ -375,6 +367,14 @@
 		/datum/mob_descriptor/trait/crestfallen,
 		/datum/mob_descriptor/trait/dour,
 		/datum/mob_descriptor/trait/stern,
+
+		/datum/mob_descriptor/trait/pale,
+		/datum/mob_descriptor/trait/tanned,
+		/datum/mob_descriptor/trait/dusky,
+		/datum/mob_descriptor/trait/crimson,
+		/datum/mob_descriptor/trait/cerulean,
+		/datum/mob_descriptor/trait/emerald,
+		/datum/mob_descriptor/trait/amber,
 
 	)
 
