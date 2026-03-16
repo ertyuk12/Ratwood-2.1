@@ -23,7 +23,7 @@
 	var/med_name
 	var/minor_name
 
-/obj/item/alch/Initialize()
+/obj/item/alch/Initialize(mapload)
 	. = ..()
 	if(!isnull(major_pot))
 		var/datum/alch_cauldron_recipe/rec = locate(major_pot) in GLOB.alch_cauldron_recipes
@@ -255,7 +255,7 @@
 
 /obj/item/alch/puresalt
 	name = "purified salts"
-	desc = "Salts that have been finely sifted to enchance their healing properties and to bolster its connection to the arcyne."
+	desc = "Salts that have been finely sifted to enhance their healing properties and to bolster their connection to the arcyne."
 	icon_state = "puresalt"
 
 	major_pot = /datum/alch_cauldron_recipe/antidote

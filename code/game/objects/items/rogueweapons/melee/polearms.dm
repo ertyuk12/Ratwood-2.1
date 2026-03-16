@@ -70,7 +70,7 @@
 	sharpness_penalty = 2
 
 /datum/intent/spear/cut/halberd
-	damfactor = 0.9
+	damfactor = 1.2
 
 /datum/intent/spear/cut/scythe
 	reach = 3
@@ -1183,7 +1183,7 @@
 
 /obj/item/rogueweapon/greatsword/bsword/psy/unforgotten
 	name = "unforgotten blade"
-	desc = "High Inquisitor Archibald once recorded an expedition of seven brave Adjudicators into Gronnian snow-felled wastes to root out evil. Its leader, Holy Ordinator Guillemin, was said to have held on for seven daes and seven nights against darksteel-clad heretics before Psydon acknowledged his endurance. Nothing but his blade remained - his psycross wrapped around its hilt in rememberance."
+	desc = "High Inquisitor Archibald once recorded an expedition of seven brave Adjudicators into Gronnian snow-felled wastes to root out evil. Its leader, Holy Ordinator Guillemin, was said to have held on for seven daes and seven nights against darksteel-clad heretics before Psydon acknowledged his endurance. Nothing but his blade remained - his psycross wrapped around its hilt in remembrance."
 	icon_state = "forgottenblade"
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silver
@@ -1481,7 +1481,7 @@
 		pic.color = "#FFA500"
 		add_overlay(pic)
 
-/obj/item/rogueweapon/spear/otava/Initialize()
+/obj/item/rogueweapon/spear/otava/Initialize(mapload)
 	. = ..()
 	// toying a bit to see if i can make it be orange
 	detail_tag = "_det"
@@ -1554,7 +1554,7 @@
 	possible_item_intents = list(/datum/intent/spear/thrust/eaglebeak/oneh, SPEAR_BASH)
 	gripped_intents = list(/datum/intent/spear/thrust/glaive, /datum/intent/spear/cut/glaive, /datum/intent/axe/chop/scythe, SPEAR_BASH)
 	name = "'Deliverer'"
-	desc = "As if glaives werent hard enough to produce, this one in particular is made out of blacksteel. A piece of art made for the captain of the guard, its a tool to deliver justice and help those weaker than the wielder."
+	desc = "As if glaives weren't hard enough to produce, this one in particular is made out of blacksteel. A piece of art made for the captain of the guard, it's a tool to deliver justice and help those weaker than the wielder."
 	force = 17
 	force_wielded = 35
 	icon = 'icons/roguetown/weapons/special/captainglaive.dmi'

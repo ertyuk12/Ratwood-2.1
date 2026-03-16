@@ -572,7 +572,7 @@
 		var/datum/species/species_type = race
 		H.set_species(species_type)
 		H.reagents.del_reagent(type)
-		to_chat(H, "<span class='warning'>You've become \a [lowertext(initial(species_type.name))]!</span>")
+		to_chat(H, "<span class='warning'>You've become \a [LOWER_TEXT(initial(species_type.name))]!</span>")
 	..()
 
 #undef MUT_MSG_IMMEDIATE
@@ -1588,7 +1588,7 @@
 
 /datum/reagent/cellulose
 	name = "Cellulose Fibers"
-	description = "A crystaline polydextrose polymer, plants swear by this stuff."
+	description = "A crystalline polydextrose polymer, plants swear by this stuff."
 	reagent_state = SOLID
 	color = "#E6E6DA"
 	taste_mult = 0
