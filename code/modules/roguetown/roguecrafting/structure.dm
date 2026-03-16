@@ -130,6 +130,15 @@
 	skillcraft = /datum/skill/craft/carpentry
 	craftdiff = 3
 
+/datum/crafting_recipe/roguetown/structure/glassdoor
+	name = "Wooden Glass Door"
+	result = /obj/structure/mineral_door/wood/window
+	reqs = list(/obj/item/grown/log/tree/small = 2, /obj/item/natural/glass = 2)
+	verbage_simple = "construst"
+	verbage = "constructs"
+	skillcraft = /datum/skill/craft/carpentry
+	craftdiff = 3
+
 /datum/crafting_recipe/roguetown/structure/barrel
 	name = "wooden barrel"
 	result = /obj/structure/fermentation_keg/crafted
