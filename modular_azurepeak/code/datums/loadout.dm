@@ -2080,7 +2080,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/backpack
 	name = "Backpack"
 	path = /obj/item/storage/backpack/rogue/backpack
-	triumph_cost = 10
+	triumph_cost = 6
 
 /datum/loadout_item/satchel
 	name = "Satchel"
